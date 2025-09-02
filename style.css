@@ -107,6 +107,7 @@ form input:focus, form select:focus {
   display: flex;
   gap: 18px;
   margin-top: 8px;
+  justify-content: flex-start;
 }
 button {
   border: none;
@@ -117,7 +118,6 @@ button {
   cursor: pointer;
   transition: background 0.2s, box-shadow 0.2s;
   margin-bottom: 12px;
-  margin-right: 0;
 }
 button.green {
   background: #13d17c;
@@ -126,12 +126,12 @@ button.green {
 button.green:hover {
   background: #10b86a;
 }
-button.dark {
-  background: #162030;
+button.reset-btn {
+  background: #23314a;
   color: #fff;
 }
-button.dark:hover {
-  background: #25324a;
+button.reset-btn:hover {
+  background: #3b4970;
 }
 
 /* Resultaat blok */
