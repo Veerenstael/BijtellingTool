@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bijtelling Calculator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Auto Bijtelling Berekenen</h1>
+    <form id="bijtelling-form">
+      <label for="cataloguswaarde">Cataloguswaarde van de auto (€):</label>
+      <input type="number" id="cataloguswaarde" required>
+      
+      <label for="auto-type">Kies het type auto:</label>
+      <select id="auto-type" required>
+        <option value="elektrisch">Elektrisch</option>
+        <option value="verbrandingsmotor">Verbrandingsmotor</option>
+      </select>
+      
+      <button type="submit">Bereken Bijtelling</button>
+    </form>
+
+    <div id="resultaat">
+      <h2>Bijtelling: €<span id="bijtelling-bedrag">0.00</span></h2>
+    </div>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>
