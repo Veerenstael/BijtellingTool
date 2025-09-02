@@ -11,12 +11,24 @@
     <h1>Bijtelling Calculator</h1>
     
     <form id="bijtelling-form">
-      <!-- Jaar keuze -->
+      <!-- Belastingjaar keuze -->
       <label for="belastingjaar">Belastingjaar:</label>
       <select id="belastingjaar">
         <option value="2025">2025</option>
         <option value="2026">2026</option>
         <option value="2027">2027</option>
+      </select>
+
+      <!-- Jaar van op kenteken zetten -->
+      <label for="kentekenjaar">Jaar van op kenteken zetten:</label>
+      <select id="kentekenjaar">
+        <option value="2019">2019</option>
+        <option value="2020">2020</option>
+        <option value="2021">2021</option>
+        <option value="2022">2022</option>
+        <option value="2023">2023</option>
+        <option value="2024">2024</option>
+        <option value="2025">2025</option>
       </select>
 
       <!-- Elektrische auto keuze -->
@@ -34,9 +46,9 @@
       <label for="cataloguswaarde">Cataloguswaarde van de auto (€):</label>
       <input type="number" id="cataloguswaarde" required>
 
-      <!-- Bruto jaarinkomen -->
-      <label for="bruto-jaarinkomen">Bruto jaarinkomen (€):</label>
-      <input type="number" id="bruto-jaarinkomen" required>
+      <!-- Bruto maandinkomen -->
+      <label for="bruto-maandinkomen">Bruto maandinkomen (€):</label>
+      <input type="number" id="bruto-maandinkomen" required>
 
       <!-- Eigen bijdrage -->
       <label for="eigen-bijdrage">Eigen bijdrage (€):</label>
