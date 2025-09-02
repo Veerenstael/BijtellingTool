@@ -59,7 +59,7 @@ document.getElementById('bijtelling-form').addEventListener('submit', function(e
   }
 
   // Bereken de bruto maandbijtelling
-  const brutoMaandbijtelling = bijtelling / 12 ;
+  const brutoMaandbijtelling = bijtelling / 12;
 
   // Bereken het percentage inkomstenbelasting afhankelijk van het bruto jaarinkomen
   let belastingPercentage;
@@ -75,10 +75,13 @@ document.getElementById('bijtelling-form').addEventListener('submit', function(e
   const brutoNaEigenBijdrage = brutoMaandbijtelling - eigenBijdrage;
 
   // Stap 2: Bereken de netto bijtelling (na belastingtarief)
-  const nettoMaandbijtelling = brutoNaEigenBijdrage * (1 - belastingPercentage) + eigenBijdrage;
+  const nettoMaandbijtelling = brutoNaEigenBijdrage * (1 - belastingPercentage);
+
+  // Stap 3: Voeg de eigen bijdrage weer toe aan de netto bijtelling per maand
+  const nettoMaandbijtellingFinal = nettoMaandbijtelling + eigenBijdrage;
 
   // Toon het resultaat
-  document.getElementById('bijtelling-bedrag').textContent = nettoMaandbijtelling.toFixed(2);
+  document.getElementById('bijtelling-bedrag').textContent = nettoMaandbijtellingFinal.toFixed(2);
 
   // Extra informatie over de bijtelling
   document.getElementById('info').textContent = `Voor het belastingjaar ${belastingjaar} en het jaar van op kenteken zetten ${kentekenjaar}, is het bijtellingpercentage voor een ${
@@ -86,6 +89,5 @@ document.getElementById('bijtelling-form').addEventListener('submit', function(e
   } auto ${bijtellingPercentage}% van de cataloguswaarde, tot de cap van €${bijtellingCap}. Bedragen boven de cap worden belast met 22%.`;
 
   // Toon het netto bijtelling per maand
-  console.log(`De netto bijtelling per maand is €${nettoMaandbijtelling.toFixed(2)}`);
+  console.log(`De netto bijtelling per maand is €${nettoMaandbijtellingFinal.toFixed(2)}`);
 });
-
