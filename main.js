@@ -71,8 +71,11 @@ document.getElementById('bijtelling-form').addEventListener('submit', function(e
     belastingPercentage = 49.50 / 100;  // 49,50% belastingtarief
   }
 
-  // Netto bijtelling per maand (afgetrokken van belasting en plus eigen bijdrage)
-  const nettoMaandbijtelling = brutoMaandbijtelling * (1 - belastingPercentage) + eigenBijdrage / 12;
+  // Stap 1: Trek de eigen bijdrage af van de bruto maandbijtelling
+  const brutoNaEigenBijdrage = brutoMaandbijtelling - eigenBijdrage;
+
+  // Stap 2: Bereken de netto bijtelling (na belastingtarief)
+  const nettoMaandbijtelling = brutoNaEigenBijdrage * (1 - belastingPercentage) + eigenBijdrage;
 
   // Toon het resultaat
   document.getElementById('bijtelling-bedrag').textContent = nettoMaandbijtelling.toFixed(2);
