@@ -3,15 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bijtelling Calculator</title>
+  <title>Bijtelling Tool</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="container">
-    <h1>Bijtelling Calculator</h1>
+    <h1>Bijtelling Tool</h1>
     
     <form id="bijtelling-form">
-      <!-- Belastingjaar keuze, nu alleen 2025 -->
       <label for="belastingjaar">Belastingjaar:</label>
       <select id="belastingjaar">
         <option value="2025">2025</option>
@@ -27,13 +26,14 @@
         <option value="2023">2023</option>
         <option value="2024">2024</option>
         <option value="2025">2025</option>
+        <option value="2025">2026</option>
       </select>
 
       <!-- Keuzemenu voor Elektrisch of Niet Elektrisch -->
       <label for="elektrisch-auto">Rij je elektrisch?</label>
       <select id="elektrisch-auto">
         <option value="ja">Ja</option>
-        <option value="nee">Nee</option>
+        <option value="nee">Nee, ik rij benzine.</option>
       </select>
 
       <!-- Cataloguswaarde input -->
@@ -65,3 +65,4 @@
   <script src="main.js"></script>
 </body>
 </html>
+
