@@ -14,7 +14,7 @@ let bijtellingCap;
 
 // Stel de bijtelling in op basis van het jaar van op kenteken zetten en het type auto
 if (isElektrisch) {
-// Bijtelling voor elektrische auto's volgens de tabel
+// Bijtelling voor elektrische auto's volgens de tabel 
 if (kentekenjaar === 2019) {
 bijtellingPercentage = 4;
 bijtellingCap = 50000;
@@ -92,3 +92,4 @@ document.getElementById('info').textContent = isElektrisch
   // Toon het netto bijtelling per maand
   console.log(`De netto bijtelling per maand is €${nettoMaandbijtellingFinal.toFixed(2)}`);
 });
+
