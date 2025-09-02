@@ -4,7 +4,7 @@ document.getElementById('bijtelling-form').addEventListener('submit', function(e
   // Haal de invoerwaarden op
   const cataloguswaarde = parseFloat(document.getElementById('cataloguswaarde').value);
   const brutoJaarinkomen = parseFloat(document.getElementById('bruto-jaarinkomen').value);
-  const eigenBijdrage = parseFloat(document.getElementById('eigen-bijdrage').value);
+  const eigenBijdrage = parseFloat(document.getElementById('eigen-bijdrage').value); // Eigen bijdrage
   const belastingjaar = document.getElementById('belastingjaar').value;
   const kentekenjaar = parseInt(document.getElementById('kentekenjaar').value);
   const isElektrisch = document.getElementById('elektrisch-auto').value === 'ja';
@@ -58,15 +58,28 @@ document.getElementById('bijtelling-form').addEventListener('submit', function(e
     bijtelling = cataloguswaarde * (bijtellingPercentage / 100);
   }
 
-  // Bereken het belastbare inkomen inclusief de bijtelling
-  const belastbaarInkomen = brutoJaarinkomen + bijtelling;
+  // Bereken de bruto maandbijtelling
+  const brutoMaandbijtelling = bijtelling / 12;
+
+  // Bereken het percentage inkomstenbelasting (37,48% voor inkomen tot €73.031, anders 49,50%)
+  let belastingPercentage;
+  if (brutoJaarinkomen <= 73031) {
+    belastingPercentage = 37.48 / 100;  // 37,48% belastingtarief
+  } else {
+    belastingPercentage = 49.50 / 100;  // 49,50% belastingtarief
+  }
+
+  // Netto bijtelling per maand (afgetrokken van belasting en plus eigen bijdrage)
+  const nettoMaandbijtelling = brutoMaandbijtelling * (1 - belastingPercentage) + eigenBijdrage / 12;
 
   // Toon het resultaat
-  document.getElementById('bijtelling-bedrag').textContent = bijtelling.toFixed(2);
+  document.getElementById('bijtelling-bedrag').textContent = nettoMaandbijtelling.toFixed(2);
+
+  // Extra informatie over de bijtelling
   document.getElementById('info').textContent = `Voor het belastingjaar ${belastingjaar} en het jaar van op kenteken zetten ${kentekenjaar}, is het bijtellingpercentage voor een ${
     isElektrisch ? 'elektrische' : 'benzine'
   } auto ${bijtellingPercentage}% van de cataloguswaarde, tot de cap van €${bijtellingCap}. Bedragen boven de cap worden belast met 22%.`;
 
-  // Toon het belastbare inkomen
-  console.log(`Het belastbare inkomen is €${belastbaarInkomen.toFixed(2)}`);
+  // Toon het netto bijtelling per maand
+  console.log(`De netto bijtelling per maand is €${nettoMaandbijtelling.toFixed(2)}`);
 });
