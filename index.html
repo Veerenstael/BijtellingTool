@@ -46,4 +46,22 @@
 
       <!-- Eigen bijdrage -->
       <label for="eigen-bijdrage">Eigen bijdrage (€):</label>
-      <inp
+      <input type="number" id="eigen-bijdrage" required>
+
+      <!-- Submit knop -->
+      <button type="submit">Bereken Bijtelling</button>
+    </form>
+
+    <div id="resultaat">
+      <h2>Jouw bijtelling: €<span id="bijtelling-bedrag">0.00</span></h2>
+    </div>
+
+    <div id="extra-informatie">
+      <!-- Extra informatie voor de gebruiker -->
+      <p id="info"></p>
+    </div>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>
