@@ -43,12 +43,19 @@ document.getElementById('bijtelling-form').addEventListener('submit', function(e
     bijtellingCap = null; // Geen cap voor benzine auto's
   }
 
-  // Bereken de bijtelling op basis van de cataloguswaarde en het bijtellingpercentage
-  let bijtelling = cataloguswaarde * (bijtellingPercentage / 100);
+  // Nu de bijtelling met de cap en boven de cap regelen
+  let bijtelling = 0;
 
-  // Als de cataloguswaarde boven de cap uitkomt, pas dan de bijtelling aan
+  // Deel de cataloguswaarde op in het gedeelte onder de cap en boven de cap
   if (bijtellingCap && cataloguswaarde > bijtellingCap) {
-    bijtelling = bijtellingCap * (bijtellingPercentage / 100);
+    // Eerste gedeelte (tot de cap) tegen het lagere percentage
+    bijtelling += bijtellingCap * (bijtellingPercentage / 100);
+    
+    // Tweede gedeelte (boven de cap) tegen 22%
+    bijtelling += (cataloguswaarde - bijtellingCap) * 0.22;
+  } else {
+    // Alles wordt belast tegen het standaard bijtellingpercentage
+    bijtelling = cataloguswaarde * (bijtellingPercentage / 100);
   }
 
   // Toon het resultaat
@@ -57,7 +64,7 @@ document.getElementById('bijtelling-form').addEventListener('submit', function(e
   // Extra informatie over de bijtelling
   const infoText = `Voor het belastingjaar ${belastingjaar} en het jaar van op kenteken zetten ${kentekenjaar}, is het bijtellingpercentage voor een ${
     isElektrisch ? 'elektrische' : 'benzine'
-  } auto ${bijtellingPercentage}% van de cataloguswaarde.`;
+  } auto ${bijtellingPercentage}% van de cataloguswaarde, tot de cap van €${bijtellingCap}. Bedragen boven de cap worden belast met 22%.`;
 
   document.getElementById('info').textContent = infoText;
 });
