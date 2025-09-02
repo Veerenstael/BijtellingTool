@@ -1,45 +1,39 @@
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
-  color: #333;
-  margin: 0;
-  padding: 0;
+/* Toevoegen van gele lijn bovenaan */
+header {
+  background-color: #FFD700; /* Geel voor de bovenste lijn */
+  height: 4px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 
+/* Kleur voor de hoofdkleur blauw */
+body {
+  background-color: #1A2A3A; /* Donkerblauw achtergrondkleur */
+  color: #ffffff; /* Witte tekstkleur voor contrast */
+}
+
+/* Voeg het logo toe bovenaan */
+header img {
+  width: 100px; /* Pas dit aan afhankelijk van de grootte van je logo */
+  position: absolute;
+  top: 10px;
+  left: 20px;
+}
+
+/* CSS voor container */
 .container {
   width: 50%;
-  margin: 2rem auto;
+  margin: 100px auto 2rem auto; /* Verhoog de bovenmarge om ruimte te maken voor de lijn */
   padding: 2rem;
-  background-color: #fff;
+  background-color: #ffffff; /* Witte achtergrond voor de container */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-h1 {
-  text-align: center;
-}
-
-form {
-  margin-bottom: 1.5rem;
-}
-
-label {
-  display: block;
-  margin: 0.5rem 0;
-}
-
-input, select {
-  width: 100%;
-  padding: 0.5rem;
-  margin-bottom: 1rem;
-  font-size: 1rem;
-  border: 1px solid #ccc;
-}
-
+/* Knoppen */
 button {
-  display: block;
-  width: 100%;
-  padding: 1rem;
-  background-color: #4CAF50;
+  background-color: #4CAF50; /* Groene knopkleur */
   color: white;
   border: none;
   font-size: 1.2rem;
@@ -48,10 +42,4 @@ button {
 
 button:hover {
   background-color: #45a049;
-}
-
-#resultaat {
-  text-align: center;
-  font-size: 1.5rem;
-  margin-top: 2rem;
 }
