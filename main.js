@@ -3,22 +3,23 @@ document.getElementById('bijtelling-form').addEventListener('submit', function(e
   
   // Haal de invoerwaarden op
   const cataloguswaarde = parseFloat(document.getElementById('cataloguswaarde').value);
-  const brutoJaarinkomen = parseFloat(document.getElementById('bruto-jaarinkomen').value);
+  const brutoMaandinkomen = parseFloat(document.getElementById('bruto-maandinkomen').value);
   const eigenBijdrage = parseFloat(document.getElementById('eigen-bijdrage').value);
   const belastingjaar = document.getElementById('belastingjaar').value;
+  const kentekenjaar = parseInt(document.getElementById('kentekenjaar').value);
   const isElektrisch = document.getElementById('elektrische-auto').value === 'ja';
 
   let bijtellingPercentage;
   let bijtellingCap;
 
-  // Stel de bijtelling in op basis van het belastingjaar en het type auto
+  // Stel de bijtelling in op basis van het belastingjaar, het jaar van op kenteken zetten en het type auto
   if (isElektrisch) {
-    if (belastingjaar === "2025") {
-      bijtellingPercentage = 16;  // Voor 2025, 16% bijtelling voor elektrische auto's
-      bijtellingCap = 30000;
-    } else if (belastingjaar === "2026") {
-      bijtellingPercentage = 22;  // Voor 2026, 22% bijtelling voor elektrische auto's
-      bijtellingCap = 30000;
+    if (kentekenjaar >= 2019 && kentekenjaar <= 2025) {
+      bijtellingPercentage = 4; // Voor 2019-2025, 4% voor elektrische auto's
+      bijtellingCap = 50000; // Tot €50.000 geldt dit percentage
+    } else if (kentekenjaar > 2025) {
+      bijtellingPercentage = 22; // Voor auto's op kenteken na 2025, 22%
+      bijtellingCap = 30000; // Tot €30.000 geldt dit percentage
     }
   } else {
     bijtellingPercentage = 22; // Voor verbrandingsmotoren is de bijtelling 22%
@@ -37,7 +38,7 @@ document.getElementById('bijtelling-form').addEventListener('submit', function(e
   document.getElementById('bijtelling-bedrag').textContent = bijtelling.toFixed(2);
 
   // Extra informatie over de bijtelling
-  const infoText = `Voor het belastingjaar ${belastingjaar} is het bijtellingpercentage voor een ${
+  const infoText = `Voor het belastingjaar ${belastingjaar} en het jaar van op kenteken zetten ${kentekenjaar}, is het bijtellingpercentage voor een ${
     isElektrisch ? 'elektrische' : 'verbrandingsmotor'
   } auto ${bijtellingPercentage}% van de cataloguswaarde.`;
 
