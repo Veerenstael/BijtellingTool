@@ -33,9 +33,7 @@ document.getElementById('bijtelling-form').addEventListener('submit', function(e
     } else if (kentekenjaar === 2025) {
       bijtellingPercentage = 17;
       bijtellingCap = 30000;
-    } else if (kentekenjaar === 2026) {
-      bijtellingPercentage = 22;
-      bijtellingCap = null; // Geen cap vanaf 2026
+    
     }
   } else {
     // Bereken de bijtelling voor benzine auto's
@@ -91,3 +89,4 @@ document.getElementById('bijtelling-form').addEventListener('submit', function(e
   // Toon het netto bijtelling per maand
   console.log(`De netto bijtelling per maand is €${nettoMaandbijtellingFinal.toFixed(2)}`);
 });
+
