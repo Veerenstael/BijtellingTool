@@ -8,22 +8,51 @@
 </head>
 <body>
   <div class="container">
-    <h1>Auto Bijtelling Berekenen</h1>
+    <h1>Bijtelling Calculator</h1>
+    
     <form id="bijtelling-form">
+      <!-- Jaar keuze -->
+      <label for="belastingjaar">Belastingjaar:</label>
+      <select id="belastingjaar">
+        <option value="2025">2025</option>
+        <option value="2026">2026</option>
+        <option value="2027">2027</option>
+      </select>
+
+      <!-- Elektrische auto keuze -->
+      <label for="elektrische-auto">Elektrische auto (EV):</label>
+      <select id="elektrische-auto">
+        <option value="ja">Ja</option>
+        <option value="nee">Nee</option>
+      </select>
+
+      <!-- Bijtelling percentage -->
+      <label for="bijtellingpercentage">Bijtellingpercentage:</label>
+      <input type="number" id="bijtellingpercentage" value="22" disabled>
+
+      <!-- Cataloguswaarde input -->
       <label for="cataloguswaarde">Cataloguswaarde van de auto (€):</label>
       <input type="number" id="cataloguswaarde" required>
-      
-      <label for="auto-type">Kies het type auto:</label>
-      <select id="auto-type" required>
-        <option value="elektrisch">Elektrisch</option>
-        <option value="verbrandingsmotor">Verbrandingsmotor</option>
-      </select>
-      
+
+      <!-- Bruto jaarinkomen -->
+      <label for="bruto-jaarinkomen">Bruto jaarinkomen (€):</label>
+      <input type="number" id="bruto-jaarinkomen" required>
+
+      <!-- Eigen bijdrage -->
+      <label for="eigen-bijdrage">Eigen bijdrage (€):</label>
+      <input type="number" id="eigen-bijdrage" required>
+
+      <!-- Submit knop -->
       <button type="submit">Bereken Bijtelling</button>
     </form>
 
     <div id="resultaat">
-      <h2>Bijtelling: €<span id="bijtelling-bedrag">0.00</span></h2>
+      <h2>Jouw bijtelling: €<span id="bijtelling-bedrag">0.00</span></h2>
+    </div>
+
+    <div id="extra-informatie">
+      <!-- Extra informatie voor de gebruiker -->
+      <p id="info"></p>
     </div>
   </div>
 
