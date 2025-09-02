@@ -3,7 +3,7 @@ document.getElementById('bijtelling-form').addEventListener('submit', function(e
 
   // Haal de invoerwaarden op
   const cataloguswaarde = parseFloat(document.getElementById('cataloguswaarde').value);
-  const brutoMaandinkomen = parseFloat(document.getElementById('bruto-maandinkomen').value);
+  const brutoJaarinkomen = parseFloat(document.getElementById('bruto-jaarinkomen').value);
   const eigenBijdrage = parseFloat(document.getElementById('eigen-bijdrage').value);
   const belastingjaar = document.getElementById('belastingjaar').value;
   const kentekenjaar = parseInt(document.getElementById('kentekenjaar').value);
