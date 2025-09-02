@@ -1,32 +1,8 @@
-// Functie om getallen mooi weer te geven
-function formatCurrency(number) {
-  return number.toLocaleString('nl-NL') + ',-'; // Gebruik de Nederlandse opmaak
-}
 
-// Functie om de waarde in te stellen op basis van de geformatteerde waarde
-function formatInputValue(inputElement) {
-  let waarde = parseFloat(inputElement.value.replace(/[^0-9.,-]+/g, ''));
-  if (!isNaN(waarde)) {
-    inputElement.value = formatCurrency(waarde);
-  }
-}
-
-// Format de getallen wanneer de gebruiker het invoerveld verlaat (blur event)
-document.getElementById('cataloguswaarde').addEventListener('blur', function() {
-  formatInputValue(this);
-});
-
-document.getElementById('bruto-jaarinkomen').addEventListener('blur', function() {
-  formatInputValue(this);
-});
-
-// Bij het indienen van het formulier, formateer de waarden correct
-document.getElementById('bijtelling-form').addEventListener('submit', function(e) {
-  e.preventDefault();
 
   // Haal de invoerwaarden op en converteer ze naar getallen
-  const cataloguswaarde = parseFloat(document.getElementById('cataloguswaarde').value.replace(/[^0-9.-]+/g, ''));
-  const brutoJaarinkomen = parseFloat(document.getElementById('bruto-jaarinkomen').value.replace(/[^0-9.-]+/g, ''));
+  const cataloguswaarde = parseFloat(document.getElementById('cataloguswaarde').value
+  const brutoJaarinkomen = parseFloat(document.getElementById('bruto-jaarinkomen').value
   const eigenBijdrage = parseFloat(document.getElementById('eigen-bijdrage').value); // Eigen bijdrage
   const belastingjaar = document.getElementById('belastingjaar').value;
   const kentekenjaar = parseInt(document.getElementById('kentekenjaar').value);
@@ -94,3 +70,4 @@ document.getElementById('bijtelling-form').addEventListener('submit', function(e
                     : `Voor het belastingjaar ${belastingjaar} en het jaar van op kenteken zetten ${kentekenjaar}, geldt voor een elektrische auto een bijtellingpercentage van ${bijtellingPercentage}% over de volledige cataloguswaarde. Er is geen maximum voor de bijtelling, dus het percentage geldt voor de volledige waarde van de auto.`)
     : `Voor het belastingjaar ${belastingjaar} en het jaar van op kenteken zetten ${kentekenjaar}, geldt voor een benzineauto een bijtelling van 22% over de volledige cataloguswaarde, zonder maximum. Dit betekent dat het percentage voor de volledige waarde van de auto geldt, zonder enige limiet.`;
 });
+
