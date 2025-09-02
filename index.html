@@ -31,16 +31,10 @@
         <option value="2025">2025</option>
       </select>
 
-      <!-- Elektrische auto keuze -->
-      <label for="elektrische-auto">Elektrische auto (EV):</label>
-      <select id="elektrische-auto">
-        <option value="ja">Ja</option>
-        <option value="nee">Nee</option>
-      </select>
-
-      <!-- Bijtelling percentage -->
-      <label for="bijtellingpercentage">Bijtellingpercentage:</label>
-      <input type="number" id="bijtellingpercentage" value="22" disabled>
+      <!-- Keuzeknoppen voor Elektrisch of Benzine -->
+      <label for="auto-type">Type auto:</label>
+      <button type="button" id="elektrisch" class="auto-type">Elektrisch</button>
+      <button type="button" id="benzine" class="auto-type">Benzine</button>
 
       <!-- Cataloguswaarde input -->
       <label for="cataloguswaarde">Cataloguswaarde van de auto (€):</label>
@@ -52,22 +46,4 @@
 
       <!-- Eigen bijdrage -->
       <label for="eigen-bijdrage">Eigen bijdrage (€):</label>
-      <input type="number" id="eigen-bijdrage" required>
-
-      <!-- Submit knop -->
-      <button type="submit">Bereken Bijtelling</button>
-    </form>
-
-    <div id="resultaat">
-      <h2>Jouw bijtelling: €<span id="bijtelling-bedrag">0.00</span></h2>
-    </div>
-
-    <div id="extra-informatie">
-      <!-- Extra informatie voor de gebruiker -->
-      <p id="info"></p>
-    </div>
-  </div>
-
-  <script src="main.js"></script>
-</body>
-</html>
+      <inp
