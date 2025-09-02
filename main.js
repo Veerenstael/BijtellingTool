@@ -7,15 +7,13 @@ document.getElementById('bijtelling-form').addEventListener('submit', function(e
   const eigenBijdrage = parseFloat(document.getElementById('eigen-bijdrage').value);
   const belastingjaar = document.getElementById('belastingjaar').value;
   const kentekenjaar = parseInt(document.getElementById('kentekenjaar').value);
-  
-  // Haal het type auto op (Elektrisch of Benzine)
-  const autoType = document.querySelector('.auto-type.active')?.id;
+  const isElektrisch = document.getElementById('elektrisch-auto').value === 'ja';
 
   let bijtellingPercentage;
   let bijtellingCap;
 
   // Stel de bijtelling in op basis van het jaar van op kenteken zetten en het type auto
-  if (autoType === 'elektrisch') {
+  if (isElektrisch) {
     // Bereken de bijtelling voor elektrische auto's
     if (kentekenjaar === 2019) {
       bijtellingPercentage = 4;
@@ -58,19 +56,8 @@ document.getElementById('bijtelling-form').addEventListener('submit', function(e
 
   // Extra informatie over de bijtelling
   const infoText = `Voor het belastingjaar ${belastingjaar} en het jaar van op kenteken zetten ${kentekenjaar}, is het bijtellingpercentage voor een ${
-    autoType === 'elektrisch' ? 'elektrische' : 'benzine'
+    isElektrisch ? 'elektrische' : 'benzine'
   } auto ${bijtellingPercentage}% van de cataloguswaarde.`;
 
   document.getElementById('info').textContent = infoText;
-});
-
-// Event listeners voor de knoppen Elektrisch en Benzine
-document.getElementById('elektrisch').addEventListener('click', function() {
-  document.getElementById('elektrisch').classList.add('active');
-  document.getElementById('benzine').classList.remove('active');
-});
-
-document.getElementById('benzine').addEventListener('click', function() {
-  document.getElementById('benzine').classList.add('active');
-  document.getElementById('elektrisch').classList.remove('active');
 });
