@@ -5,39 +5,30 @@ body {
   min-height: 100vh;
 }
 
-/* Dashboard achtergrond */
-.dashboard-bg {
-  min-height: 100vh;
-  background: linear-gradient(180deg, #223344 0%, #1a2636 100%);
+/* Nieuwe logo-header */
+.logo-header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 32px 0;
+  gap: 8px;
+  margin-bottom: 36px;
 }
-
-/* Logo blok bovenaan */
-.top-card {
-  margin-bottom: 40px;
-  background: #223344;
-  color: #fff;
-  padding: 18px 42px 8px 42px;
-  border-radius: 14px;
-  box-shadow: 0 4px 24px #0003;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-family: 'Inter', sans-serif;
+.veerenstael-logo {
+  width: 340px;
+  max-width: 80vw;
+  height: auto;
+  display: block;
+  margin: 22px auto 0 auto;
 }
-.brand {
+.subtitle-title {
   font-size: 1.3rem;
   font-weight: bold;
+  color: #fff;
   letter-spacing: 2px;
-}
-.subtitle {
-  font-size: 1rem;
-  letter-spacing: 2px;
-  color: #b8c7e0;
+  margin-top: 6px;
+  margin-bottom: 10px;
+  text-align: center;
+  text-transform: uppercase;
 }
 
 /* Hoofdkaart */
@@ -180,5 +171,9 @@ button.reset-btn:hover {
   .input-pane, .output-pane {
     padding-right: 0;
     padding-left: 0;
+  }
+  .veerenstael-logo {
+    width: 90vw;
+    max-width: 98vw;
   }
 }
