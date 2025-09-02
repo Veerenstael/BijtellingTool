@@ -53,14 +53,9 @@ body {
   flex-direction: column;
 }
 
+/* Header centreren */
 .header {
   text-align: center;
-}
-.header h1 {
-  font-size: 2.2rem;
-  font-weight: bold;
-  margin-bottom: 0;
-  margin-top: 0;
 }
 .header p {
   text-align: center;
@@ -69,6 +64,7 @@ body {
   margin-bottom: 0;
 }
 
+/* Grid voor formulier en resultaat */
 .content-grid {
   display: flex;
   gap: 40px;
@@ -98,6 +94,7 @@ body {
   margin-right: auto;
 }
 
+/* Formulier styling */
 form label {
   display: block;
   margin-bottom: 6px;
@@ -120,6 +117,7 @@ form input:focus, form select:focus {
   outline: 2px solid #3e70ff;
 }
 
+/* Knoppen */
 .button-row {
   display: flex;
   gap: 18px;
@@ -151,6 +149,7 @@ button.reset-btn:hover {
   background: #3b4970;
 }
 
+/* Resultaat blok */
 .result-block {
   background: #232b3a;
   border-radius: 12px;
