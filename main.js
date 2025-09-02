@@ -84,12 +84,13 @@ document.getElementById('bijtelling-form').addEventListener('submit', function(e
   document.getElementById('bijtelling-bedrag').textContent = nettoMaandbijtellingFinal.toFixed(2);
 
   // Extra informatie over de bijtelling
-  document.getElementById('info').textContent = `Voor het belastingjaar ${belastingjaar} en het jaar van op kenteken zetten ${kentekenjaar}, is het bijtellingpercentage voor een ${
+  document.getElementById('info').textContent = `Voor het belastingjaar ${belastingjaar} en het jaar ${kentekenjaar} waarin je auto op kenteken is gezet, is het bijtellingpercentage voor een ${
     isElektrisch ? 'elektrische' : 'benzine'
-  } auto ${bijtellingPercentage}% van de cataloguswaarde, tot de cap van €${bijtellingCap}. Bedragen boven de cap worden belast met 22%.`;
+  } auto ${bijtellingPercentage}% van de cataloguswaarde, tot een maximum van €${bijtellingCap}. Bedragen boven deze maximum worden belast met 22%.`;
 
   // Toon het netto bijtelling per maand
   console.log(`De netto bijtelling per maand is €${nettoMaandbijtellingFinal.toFixed(2)}`);
 });
+
 
 
