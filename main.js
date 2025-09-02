@@ -72,7 +72,7 @@ document.getElementById('bijtelling-form').addEventListener('submit', function(e
   }
 
    // Stap 2: Bereken de netto bijtelling (na belastingtarief)
-  const nettoMaandbijtelling = brutoMaandbijtelling * (belastingPercentage);
+  const nettoMaandbijtelling = brutoMaandbijtelling * belastingPercentage;
 
   // Stap 3: Voeg de eigen bijdrage weer toe aan de netto bijtelling per maand
   const nettoMaandbijtellingFinal = nettoMaandbijtelling + eigenBijdrage;
@@ -88,4 +88,5 @@ document.getElementById('bijtelling-form').addEventListener('submit', function(e
   // Toon het netto bijtelling per maand
   console.log(`De netto bijtelling per maand is €${nettoMaandbijtellingFinal.toFixed(2)}`);
 });
+
 
