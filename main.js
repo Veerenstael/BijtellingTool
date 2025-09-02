@@ -34,8 +34,8 @@ document.getElementById('bijtelling-form').addEventListener('submit', function(e
       bijtellingPercentage = 17;
       bijtellingCap = 30000;
     } else if (kentekenjaar === 2026) {
-      bijtellingPercentage = 22;
-      bijtellingCap = null; // Geen cap vanaf 2026
+      bijtellingPercentage = 22;  // 22% voor 2026
+      bijtellingCap = null; // Geen cap voor 2026
     }
   } else {
     // Bereken de bijtelling voor benzine auto's
@@ -83,9 +83,13 @@ document.getElementById('bijtelling-form').addEventListener('submit', function(e
   // Toon het resultaat
   document.getElementById('bijtelling-bedrag').textContent = nettoMaandbijtellingFinal.toFixed(2);
 
-  // Extra informatie over de bijtelling
-  document.getElementById('info').textContent = isElektrisch
-    ? (bijtellingCap ? `Voor het belastingjaar ${belastingjaar} en het jaar van op kenteken zetten ${kentekenjaar}, geldt voor een elektrische auto een bijtellingpercentage van ${bijtellingPercentage}% van de cataloguswaarde. Tot een maximum van €${bijtellingCap} wordt dit percentage toegepast. Bedragen boven dit maximum worden belast tegen 22%.` 
-                    : `Voor het belastingjaar ${belastingjaar} en het jaar van op kenteken zetten ${kentekenjaar}, geldt voor een elektrische auto een bijtellingpercentage van ${bijtellingPercentage}% over de volledige cataloguswaarde. Er is geen maximum voor de bijtelling, dus het percentage geldt voor de volledige waarde van de auto.`)
-    : `Voor het belastingjaar ${belastingjaar} en het jaar van op kenteken zetten ${kentekenjaar}, geldt voor een benzineauto een bijtelling van 22% over de volledige cataloguswaarde, zonder maximum. Dit betekent dat het percentage voor de volledige waarde van de auto geldt, zonder enige limiet.`;
+ // Extra informatie over de bijtelling
+document.getElementById('info').textContent = isElektrisch
+  ? (bijtellingCap ? `Voor het belastingjaar ${belastingjaar} en het jaar van op kenteken zetten ${kentekenjaar}, geldt voor een elektrische auto een bijtellingpercentage van ${bijtellingPercentage}% van de cataloguswaarde. Tot een maximum van €${bijtellingCap} wordt dit percentage toegepast. Bedragen boven dit maximum worden belast tegen 22%.` 
+                  : `Voor het belastingjaar ${belastingjaar} en het jaar van op kenteken zetten ${kentekenjaar}, geldt voor een elektrische auto een bijtellingpercentage van ${bijtellingPercentage}% over de volledige cataloguswaarde. Er is geen maximum voor de bijtelling, dus het percentage geldt voor de volledige waarde van de auto.`)
+  : `Voor het belastingjaar ${belastingjaar} en het jaar van op kenteken zetten ${kentekenjaar}, geldt voor een benzineauto een bijtelling van 22% over de volledige cataloguswaarde, zonder maximum. Dit betekent dat het percentage voor de volledige waarde van de auto geldt, zonder enige limiet.`;
+
+
+  // Toon het netto bijtelling per maand
+  console.log(`De netto bijtelling per maand is €${nettoMaandbijtellingFinal.toFixed(2)}`);
 });
