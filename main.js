@@ -61,9 +61,11 @@ document.getElementById('bijtelling-form').addEventListener('submit', function(e
   // Bereken de bruto maandbijtelling
   const brutoMaandbijtelling = bijtelling / 12;
 
-  // Bereken het percentage inkomstenbelasting (37,48% voor inkomen tot €73.031, anders 49,50%)
+  // Bereken het percentage inkomstenbelasting afhankelijk van het bruto jaarinkomen
   let belastingPercentage;
-  if (brutoJaarinkomen <= 73031) {
+  if (brutoJaarinkomen <= 38441) {
+    belastingPercentage = 35.85 / 100;  // 35,85% belastingtarief
+  } else if (brutoJaarinkomen <= 76816) {
     belastingPercentage = 37.48 / 100;  // 37,48% belastingtarief
   } else {
     belastingPercentage = 49.50 / 100;  // 49,50% belastingtarief
