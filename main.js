@@ -14,7 +14,7 @@ document.getElementById('bijtelling-form').addEventListener('submit', function(e
 
   // Stel de bijtelling in op basis van het jaar van op kenteken zetten en het type auto
   if (isElektrisch) {
-    // Bereken de bijtelling voor elektrische auto's
+    // Bijtelling voor elektrische auto's volgens de tabel
     if (kentekenjaar === 2019) {
       bijtellingPercentage = 4;
       bijtellingCap = 50000;
@@ -43,7 +43,7 @@ document.getElementById('bijtelling-form').addEventListener('submit', function(e
     bijtellingCap = null; // Geen cap voor benzine auto's
   }
 
-  // Nu de bijtelling met de cap en boven de cap regelen
+  // Bereken de bijtelling op basis van de cataloguswaarde en het bijtellingpercentage
   let bijtelling = 0;
 
   // Deel de cataloguswaarde op in het gedeelte onder de cap en boven de cap
@@ -58,13 +58,15 @@ document.getElementById('bijtelling-form').addEventListener('submit', function(e
     bijtelling = cataloguswaarde * (bijtellingPercentage / 100);
   }
 
+  // Bereken het belastbare inkomen inclusief de bijtelling
+  const belastbaarInkomen = brutoJaarinkomen + bijtelling;
+
   // Toon het resultaat
   document.getElementById('bijtelling-bedrag').textContent = bijtelling.toFixed(2);
-
-  // Extra informatie over de bijtelling
-  const infoText = `Voor het belastingjaar ${belastingjaar} en het jaar van op kenteken zetten ${kentekenjaar}, is het bijtellingpercentage voor een ${
+  document.getElementById('info').textContent = `Voor het belastingjaar ${belastingjaar} en het jaar van op kenteken zetten ${kentekenjaar}, is het bijtellingpercentage voor een ${
     isElektrisch ? 'elektrische' : 'benzine'
   } auto ${bijtellingPercentage}% van de cataloguswaarde, tot de cap van €${bijtellingCap}. Bedragen boven de cap worden belast met 22%.`;
 
-  document.getElementById('info').textContent = infoText;
+  // Toon het belastbare inkomen
+  console.log(`Het belastbare inkomen is €${belastbaarInkomen.toFixed(2)}`);
 });
