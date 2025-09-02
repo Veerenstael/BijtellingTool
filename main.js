@@ -59,7 +59,7 @@ document.getElementById('bijtelling-form').addEventListener('submit', function(e
   }
 
   // Bereken de bruto maandbijtelling
-  const brutoMaandbijtelling = bijtelling / 12;
+  const brutoMaandbijtelling = bijtelling / 12 ;
 
   // Bereken het percentage inkomstenbelasting afhankelijk van het bruto jaarinkomen
   let belastingPercentage;
@@ -88,3 +88,4 @@ document.getElementById('bijtelling-form').addEventListener('submit', function(e
   // Toon het netto bijtelling per maand
   console.log(`De netto bijtelling per maand is €${nettoMaandbijtelling.toFixed(2)}`);
 });
+
