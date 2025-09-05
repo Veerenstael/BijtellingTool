@@ -103,7 +103,7 @@ document.getElementById('bijtelling-form').addEventListener('submit', function(e
   const heffingskortingPerMaand = totaleHeffingskorting / 12;
 
   // Netto bijtelling: na toepassing heffingskorting
-  const nettoMaandbijtellingFinal = nettoMaandbijtellingFinalExKorting - heffingskortingPerMaand;
+  const nettoMaandbijtellingFinal = nettoMaandbijtellingFinalExKorting + heffingskortingPerMaand;
 
   // Toon het resultaat
   document.getElementById('bijtelling-bedrag').textContent = nettoMaandbijtellingFinal.toFixed(2);
@@ -120,3 +120,4 @@ document.getElementById('bijtelling-form').addEventListener('submit', function(e
     <b>Netto bijtelling per maand: €${nettoMaandbijtellingFinal.toFixed(2)}</b>
   `;
 });
+
