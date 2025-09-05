@@ -103,8 +103,9 @@ document.getElementById('bijtelling-form').addEventListener('submit', function(e
     Bruto maandbijtelling: €${brutoMaandbijtelling.toFixed(2)}<br>
     Eigen bijdrage: €${eigenBijdrage.toFixed(2)}<br>
     Belastbaar deel: €${brutoNaEigenBijdrage.toFixed(2)}<br>
-    Toegepast belastingtarief: ${(belastingPercentage*100).toFixed(2)}%<br>
-    Minder heffingskorting door leaseauto (maand): €${minderHeffingskortingPerMaand.toFixed(2)}<br>
+    Belastingtarief: ${(belastingPercentage*100).toFixed(2)}%<br>
+    Minder heffingskorting: €${minderHeffingskortingPerMaand.toFixed(2)}<br>
     <b>Netto bijtelling per maand (incl. minder heffingskorting): €${nettoMaandbijtellingFinal.toFixed(2)}</b>
   `;
 });
+
