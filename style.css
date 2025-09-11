@@ -1,58 +1,112 @@
+/* Basestijl gebaseerd op je bijtellingtool, met kleine uitbreidingen voor logo en KPI's */
+
+/* Page */
 body {
   font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
+  background-color: #f4f4f4; /* zelfde lichte achtergrond als je bijtellingtool */
   color: #333;
   margin: 0;
   padding: 0;
 }
 
+/* Header met logo en titel */
+.header {
+  text-align: center;
+  padding: 1.5rem 1rem 0.5rem;
+}
+.logo {
+  height: 56px;
+  width: auto;
+  display: block;
+  margin: 0 auto 0.5rem;
+}
+.header h1 {
+  margin: 0.25rem 0 0.5rem;
+}
+.header .intro {
+  max-width: 900px;
+  margin: 0 auto 1rem;
+  color: #555;
+}
+
+/* Container/kaart */
 .container {
   width: 50%;
-  margin: 2rem auto;
+  min-width: 320px;
+  max-width: 980px;
+  margin: 1rem auto 2rem;
   padding: 2rem;
   background-color: #fff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  border-radius: 10px;
 }
 
-h1 {
-  text-align: center;
-}
-
-form {
-  margin-bottom: 1.5rem;
-}
-
-label {
-  display: block;
-  margin: 0.5rem 0;
-}
-
+/* Form */
+form { margin-bottom: 1.5rem; }
+label { display: block; margin: 0.5rem 0; }
 input, select {
   width: 100%;
   padding: 0.5rem;
   margin-bottom: 1rem;
   font-size: 1rem;
   border: 1px solid #ccc;
+  border-radius: 8px;
 }
 
+/* Knop (zelfde groen) */
 button {
   display: block;
   width: 100%;
   padding: 1rem;
-  background-color: #4CAF50;
+  background-color: #4CAF50; /* groen uit bijtellingtool */
   color: white;
   border: none;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
+  border-radius: 8px;
   cursor: pointer;
 }
+button:hover { background-color: #45a049; }
 
-button:hover {
-  background-color: #45a049;
+/* Resultaten */
+#resultaat { margin-top: 1rem; }
+#resultaat h2 { text-align: center; }
+
+.kpi-wrap {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin: 1rem 0 0.5rem;
+}
+.kpi {
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 0.8rem;
+  background: #fafafa;
+  text-align: center;
+}
+.kpi-label { font-size: 0.95rem; color: #666; }
+.kpi-value { font-size: 1.4rem; font-weight: 700; color: #0a7a35; } /* Veerenstael-groen accent */
+.kpi-sub { font-size: 0.85rem; color: #888; margin-top: 2px; }
+
+#extra-informatie p {
+  margin: 0.25rem 0;
+  font-size: 0.95rem;
 }
 
-#resultaat {
-  text-align: center;
-  font-size: 1.5rem;
-  margin-top: 2rem;
-} 
+.alert {
+  margin-top: 0.75rem;
+  background: #fff7ed;
+  color: #9a3412;
+  border: 1px solid #fdba74;
+  border-radius: 8px;
+  padding: 10px 12px;
+}
 
+/* Responsief */
+@media (max-width: 900px) {
+  .container { width: 90%; }
+  .kpi-wrap { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 520px) {
+  .kpi-wrap { grid-template-columns: 1fr; }
+}
