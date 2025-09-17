@@ -1,8 +1,14 @@
+/* Altijd padding meerekenen in breedte */
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   font-family: 'Inter', Arial, sans-serif;
   background: #203040;
   min-height: 100vh;
+  overflow-x: hidden; /* voorkomt horizontaal scrollen */
 }
 
 .dashboard-bg {
@@ -43,9 +49,9 @@ body {
   background: #222c38;
   border-radius: 18px;
   box-shadow: 0 8px 32px #0004;
-  padding: 32px 40px;
+  padding: 32px 20px;           /* padding verkleind */
   max-width: 950px;
-  width: 100%;
+  width: 100%;                  /* blijft binnen frame */
   color: #fff;
   margin-left: auto;
   margin-right: auto;
@@ -67,7 +73,8 @@ body {
 /* Grid voor formulier en resultaat */
 .content-grid {
   display: flex;
-  gap: 40px;
+  flex-wrap: wrap;   /* voorkomt overflow */
+  gap: 24px;         /* iets kleiner */
   margin-top: 28px;
   justify-content: center;
 }
@@ -184,8 +191,8 @@ button.reset-btn:hover {
 
 @media (max-width: 950px) {
   .main-card {
-    padding: 24px 6vw;
-    max-width: 99vw;
+    padding: 24px 16px;  /* padding responsive aangepast */
+    max-width: 100%;     /* altijd binnen viewport */
   }
   .content-grid {
     flex-direction: column;
@@ -195,7 +202,7 @@ button.reset-btn:hover {
   .input-pane,
   .output-pane {
     padding: 0;
-    max-width: 99vw;
+    max-width: 100%;     /* voorkomt overflow */
   }
   .veerenstael-logo {
     width: 90vw;
