@@ -34,7 +34,7 @@ bijtellingCap = 30000;
 bijtellingPercentage = 17;
 bijtellingCap = 30000;
 } else if (kentekenjaar === 2026) {
-        bijtellingPercentage = 22;  // 22% voor 2026
+        bijtellingPercentage = 18;  // 22% voor 2026
       bijtellingCap = null; // Geen cap voor 2026
 }
 } else {
@@ -92,4 +92,5 @@ document.getElementById('info').textContent = isElektrisch
   // Toon het netto bijtelling per maand
   console.log(`De netto bijtelling per maand is €${nettoMaandbijtellingFinal.toFixed(2)}`);
 });
+
 
