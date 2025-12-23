@@ -1,74 +1,69 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>SparePart Tool</title>
-  <link rel="stylesheet" href="style.css"/>
-  <link rel="icon" href="favicon.png"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bijtelling Berekenen</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="favicon.png" type="image/png">
 </head>
 <body>
   <header class="header">
-    <img src="favicon.png" alt="Veerenstael" class="logo"/>
-    <h1>SparePart Tool</h1>
+    <img src="https://www.veerenstael.nl/wp-content/uploads/2020/06/logo-veerenstael-wit.png" alt="Veerenstael Logo" class="logo">
+    <h1>Bijtelling Auto van de zaak</h1>
     <p class="intro">
-      Bereken de <strong>run-out kans</strong>, <strong>stilstanduren per jaar</strong> en <strong>(on)beschikbaarheid</strong>
-      op basis van aantal componenten (m), faalfrequentie (λ), aantal spares (n) en stilstandtijden (TstM/TstZ).
+      Bereken de netto maandelijkse bijtelling voor een auto van de zaak op basis van cataloguswaarde, 
+      jaarinkomen en of de auto elektrisch is.
     </p>
   </header>
 
   <div class="container">
-    <form id="spares-form">
-      <label for="m">Aantal componenten in het systeem (m):</label>
-      <input type="number" id="m" min="0" step="1" value="10" required>
+    <form id="bijtelling-form">
+      <label for="cataloguswaarde">Cataloguswaarde (€):</label>
+      <input type="number" id="cataloguswaarde" min="0" step="100" value="50000" required>
 
-      <label for="lambda">Faalfrequentie per component per jaar (λ):</label>
-      <input type="number" id="lambda" min="0" step="0.0001" value="0.2" required>
+      <label for="bruto-jaarinkomen">Bruto jaarinkomen (€):</label>
+      <input type="number" id="bruto-jaarinkomen" min="0" step="1000" value="60000" required>
 
-      <label for="n">Aantal reserveonderdelen op voorraad (n):</label>
-      <input type="number" id="n" min="0" step="1" value="2" required>
+      <label for="eigen-bijdrage">Eigen bijdrage per maand (€):</label>
+      <input type="number" id="eigen-bijdrage" min="0" step="10" value="0" required>
 
-      <label for="tstm">Stilstand per failure <em>met</em> voorraad (TstM) in uren:</label>
-      <input type="number" id="tstm" min="0" step="0.1" value="8" required>
+      <label for="belastingjaar">Belastingjaar:</label>
+      <select id="belastingjaar">
+        <option value="2025">2025</option>
+        <option value="2026" selected>2026</option>
+      </select>
 
-      <label for="tstz">Stilstand per failure <em>zonder</em> voorraad (TstZ) in uren:</label>
-      <input type="number" id="tstz" min="0" step="0.1" value="200" required>
+      <label for="kentekenjaar">Jaar van op kenteken zetten:</label>
+      <select id="kentekenjaar">
+        <option value="2019">2019</option>
+        <option value="2020">2020</option>
+        <option value="2021">2021</option>
+        <option value="2022">2022</option>
+        <option value="2023">2023</option>
+        <option value="2024">2024</option>
+        <option value="2025">2025</option>
+        <option value="2026" selected>2026</option>
+      </select>
 
-      <button type="submit">Bereken</button>
+      <label for="elektrisch-auto">Elektrische auto?</label>
+      <select id="elektrisch-auto">
+        <option value="nee">Nee (benzine/diesel)</option>
+        <option value="ja">Ja (volledig elektrisch)</option>
+      </select>
+
+      <button type="submit">Bereken bijtelling</button>
     </form>
 
     <div id="resultaat">
-      <h2>Resultaten</h2>
-      <div class="kpi-wrap">
-        <div class="kpi">
-          <div class="kpi-label">Run-out kans</div>
-          <div class="kpi-value" id="outP">—</div>
-          <div class="kpi-sub">P(X ≥ n)</div>
-        </div>
-        <div class="kpi">
-          <div class="kpi-label">Stilstanduren per jaar</div>
-          <div class="kpi-value" id="outDT">—</div>
-          <div class="kpi-sub">uur/jaar</div>
-        </div>
-        <div class="kpi">
-          <div class="kpi-label">Onbeschikbaarheid</div>
-          <div class="kpi-value" id="outUA">—</div>
-          <div class="kpi-sub">jaarfractie</div>
-        </div>
-        <div class="kpi">
-          <div class="kpi-label">Beschikbaarheid</div>
-          <div class="kpi-value" id="outAV">—</div>
-          <div class="kpi-sub">jaarfractie</div>
-        </div>
+      <h2>Netto bijtelling per maand</h2>
+      <div class="result-box">
+        <div class="result-bedrag">€<span id="bijtelling-bedrag">0,00</span></div>
       </div>
 
       <div id="extra-informatie">
-        <p><strong>T<sub>a</sub> (jaren):</strong> <span id="outTa">—</span></p>
-        <p><strong>μ = m·λ·T<sub>a</sub>:</strong> <span id="outMu">—</span></p>
-        <p><strong>Poisson CDF t/m n−1:</strong> <span id="outCDF">—</span></p>
         <p id="info"></p>
       </div>
-      <div id="warn" class="alert" hidden></div>
     </div>
   </div>
 
