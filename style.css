@@ -1,4 +1,8 @@
-/* Bijtelling tool met Veerenstael styling */
+/* Bijtelling Tool met Veerenstael styling */
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   font-family: 'Roboto', Arial, sans-serif;
@@ -7,163 +11,227 @@ body {
   overflow-x: hidden;
 }
 
-.header {
-  text-align: center;
-  padding: 2rem 1rem 1rem;
-  color: #FFFFFF;
+.dashboard-bg {
+  min-height: 100vh;
+  background: #2A6085;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 32px 0;
+  width: 100%;
+  overflow-x: hidden;
 }
 
-.logo {
+.logo-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 36px;
+}
+.veerenstael-logo {
   width: 340px;
   max-width: 80vw;
   height: auto;
   display: block;
-  margin: 0 auto 1rem;
+  margin: 22px auto 0 auto;
 }
-
-.header h1 {
-  margin: 0.5rem 0;
-  font-size: 2rem;
+.subtitle-title {
+  font-size: 1.3rem;
+  font-weight: bold;
   color: #FFFFFF;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
+  margin-top: 6px;
+  margin-bottom: 10px;
+  text-align: center;
+  text-transform: uppercase;
 }
 
-.header .intro {
-  max-width: 800px;
-  margin: 0.5rem auto 0;
-  color: #FBF5EC;
-  font-size: 1rem;
-  line-height: 1.5;
-}
-
-.container {
-  width: 90%;
-  max-width: 650px;
-  margin: 1rem auto 2rem;
-  padding: 2rem 2.5rem;
-  background-color: #FBF5EC;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+.main-card {
+  background: #FBF5EC;
   border-radius: 18px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+  padding: 32px 20px;
+  max-width: 950px;
+  width: 100%;
+  color: #1D1D1B;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
   box-sizing: border-box;
 }
 
-form {
-  margin-bottom: 1.5rem;
+.header {
+  text-align: center;
+}
+.header p {
+  text-align: center;
+  color: #1D1D1B;
+  margin-top: 4px;
+  margin-bottom: 0;
 }
 
-label {
+.content-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin-top: 28px;
+  justify-content: center;
+}
+.input-pane, .output-pane {
+  flex: 1 1 0;
+  min-width: 0;
+}
+.input-pane {
+  padding-right: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.output-pane {
+  padding-left: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  max-width: 350px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+form label {
   display: block;
-  margin: 0.5rem 0 0.25rem;
+  margin-bottom: 6px;
   font-weight: 500;
   color: #1D1D1B;
 }
-
-input, select {
+form input, form select {
   width: 100%;
-  padding: 0.75rem;
-  margin-bottom: 1rem;
-  font-size: 1rem;
-  border: 1px solid #BFD4DA;
-  border-radius: 9px;
   background: #FFFFFF;
   color: #1D1D1B;
+  border: 1px solid #BFD4DA;
+  border-radius: 9px;
+  padding: 12px;
+  margin-bottom: 18px;
+  font-size: 1rem;
   box-sizing: border-box;
-  transition: border-color 0.2s, box-shadow 0.2s;
+  transition: box-shadow 0.2s, border-color 0.2s;
 }
-
-input:focus, select:focus {
+form input:focus, form select:focus {
   outline: none;
   border-color: #2A6085;
   box-shadow: 0 0 0 3px rgba(42, 96, 133, 0.1);
 }
 
+.button-row {
+  display: flex;
+  gap: 18px;
+  margin-top: 8px;
+  justify-content: flex-start;
+}
 button {
-  display: block;
-  width: 100%;
-  padding: 1rem;
-  background-color: #2A6085;
-  color: #FFFFFF;
   border: none;
+  border-radius: 9px;
+  padding: 14px 26px;
   font-size: 1.1rem;
   font-weight: bold;
-  border-radius: 9px;
   cursor: pointer;
   transition: background 0.2s, box-shadow 0.2s;
+  margin-bottom: 12px;
 }
-
-button:hover {
-  background-color: #1f4a64;
+button.green {
+  background: #2A6085;
+  color: #FFFFFF;
+}
+button.green:hover {
+  background: #1f4a64;
   box-shadow: 0 4px 12px rgba(42, 96, 133, 0.3);
 }
-
-#resultaat {
-  margin-top: 2rem;
+button.reset-btn {
+  background: #BFD4DA;
+  color: #1D1D1B;
+}
+button.reset-btn:hover {
+  background: #a8c3cc;
 }
 
-#resultaat h2 {
-  text-align: center;
-  color: #2A6085;
-  margin-bottom: 1rem;
-  font-size: 1.5rem;
-}
-
-.result-box {
+.result-block {
   background: #FFFFFF;
   border: 2px solid #2A6085;
   border-radius: 12px;
-  padding: 2rem;
-  text-align: center;
+  padding: 28px 24px 18px 24px;
+  margin-bottom: 18px;
   box-shadow: 0 2px 16px rgba(42, 96, 133, 0.15);
-  margin-bottom: 1.5rem;
+  text-align: center;
 }
-
-.result-bedrag {
-  font-size: 2.5rem;
-  font-weight: bold;
+.result-block h2 {
+  font-size: 1.3rem;
+  margin-top: 0;
+  margin-bottom: 10px;
   color: #2A6085;
 }
+.result-bedrag {
+  font-size: 2.3rem;
+  font-weight: bold;
+  color: #2A6085;
+  margin-top: 2px;
+}
 
-#extra-informatie {
+.info-block {
   background: #FFFFFF;
   border: 1px solid #BFD4DA;
   border-radius: 12px;
-  padding: 1.25rem;
+  padding: 18px 20px;
   color: #1D1D1B;
   font-size: 0.95rem;
-  line-height: 1.6;
+  min-height: 40px;
+  margin-top: 8px;
   box-shadow: 0 1px 8px rgba(42, 96, 133, 0.1);
+  line-height: 1.6;
 }
 
-#extra-informatie p {
-  margin: 0;
-}
-
-/* Responsief */
-@media (max-width: 768px) {
-  .container {
-    width: 92%;
-    padding: 1.5rem 1.25rem;
-    margin: 1rem auto 1.5rem;
+@media (max-width: 950px) {
+  .dashboard-bg {
+    padding: 16px 0;
   }
-  
-  .header h1 {
-    font-size: 1.6rem;
+  .main-card {
+    padding: 24px 16px;
+    max-width: 100%;
+    margin: 0 12px;
   }
-  
-  .header .intro {
-    font-size: 0.9rem;
+  .content-grid {
+    flex-direction: column;
+    gap: 24px;
+    align-items: center;
   }
-  
-  .logo {
+  .input-pane,
+  .output-pane {
+    padding: 0;
+    max-width: 100%;
+  }
+  .veerenstael-logo {
     width: 80vw;
     max-width: 300px;
   }
-  
-  input, select {
+  .subtitle-title {
+    font-size: 1.1rem;
+    padding: 0 12px;
+  }
+  .header p {
+    font-size: 0.9rem;
+    padding: 0 8px;
+  }
+  form input, form select {
     font-size: 16px; /* Voorkomt zoom op iOS */
   }
-  
-  .result-bedrag {
-    font-size: 2rem;
+  .button-row {
+    flex-direction: column;
+    gap: 12px;
+  }
+  button {
+    width: 100%;
   }
 }
