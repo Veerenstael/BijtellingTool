@@ -1,112 +1,169 @@
-/* Basestijl gebaseerd op je bijtellingtool, met kleine uitbreidingen voor logo en KPI's */
-
-/* Page */
+/* Bijtelling tool met Veerenstael styling */
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f4; /* zelfde lichte achtergrond als je bijtellingtool */
-  color: #333;
   margin: 0;
-  padding: 0;
+  font-family: 'Roboto', Arial, sans-serif;
+  background: #2A6085;
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 
-/* Header met logo en titel */
 .header {
   text-align: center;
-  padding: 1.5rem 1rem 0.5rem;
+  padding: 2rem 1rem 1rem;
+  color: #FFFFFF;
 }
+
 .logo {
-  height: 56px;
-  width: auto;
+  width: 340px;
+  max-width: 80vw;
+  height: auto;
   display: block;
-  margin: 0 auto 0.5rem;
-}
-.header h1 {
-  margin: 0.25rem 0 0.5rem;
-}
-.header .intro {
-  max-width: 900px;
   margin: 0 auto 1rem;
-  color: #555;
 }
 
-/* Container/kaart */
+.header h1 {
+  margin: 0.5rem 0;
+  font-size: 2rem;
+  color: #FFFFFF;
+  letter-spacing: 1px;
+}
+
+.header .intro {
+  max-width: 800px;
+  margin: 0.5rem auto 0;
+  color: #FBF5EC;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
 .container {
-  width: 50%;
-  min-width: 320px;
-  max-width: 980px;
+  width: 90%;
+  max-width: 650px;
   margin: 1rem auto 2rem;
-  padding: 2rem;
-  background-color: #fff;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  border-radius: 10px;
+  padding: 2rem 2.5rem;
+  background-color: #FBF5EC;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+  border-radius: 18px;
+  box-sizing: border-box;
 }
 
-/* Form */
-form { margin-bottom: 1.5rem; }
-label { display: block; margin: 0.5rem 0; }
+form {
+  margin-bottom: 1.5rem;
+}
+
+label {
+  display: block;
+  margin: 0.5rem 0 0.25rem;
+  font-weight: 500;
+  color: #1D1D1B;
+}
+
 input, select {
   width: 100%;
-  padding: 0.5rem;
+  padding: 0.75rem;
   margin-bottom: 1rem;
   font-size: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 8px;
+  border: 1px solid #BFD4DA;
+  border-radius: 9px;
+  background: #FFFFFF;
+  color: #1D1D1B;
+  box-sizing: border-box;
+  transition: border-color 0.2s, box-shadow 0.2s;
 }
 
-/* Knop (zelfde groen) */
+input:focus, select:focus {
+  outline: none;
+  border-color: #2A6085;
+  box-shadow: 0 0 0 3px rgba(42, 96, 133, 0.1);
+}
+
 button {
   display: block;
   width: 100%;
   padding: 1rem;
-  background-color: #4CAF50; /* groen uit bijtellingtool */
-  color: white;
+  background-color: #2A6085;
+  color: #FFFFFF;
   border: none;
   font-size: 1.1rem;
-  border-radius: 8px;
+  font-weight: bold;
+  border-radius: 9px;
   cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s;
 }
-button:hover { background-color: #45a049; }
 
-/* Resultaten */
-#resultaat { margin-top: 1rem; }
-#resultaat h2 { text-align: center; }
-
-.kpi-wrap {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 12px;
-  margin: 1rem 0 0.5rem;
+button:hover {
+  background-color: #1f4a64;
+  box-shadow: 0 4px 12px rgba(42, 96, 133, 0.3);
 }
-.kpi {
-  border: 1px solid #e5e7eb;
-  border-radius: 10px;
-  padding: 0.8rem;
-  background: #fafafa;
+
+#resultaat {
+  margin-top: 2rem;
+}
+
+#resultaat h2 {
   text-align: center;
+  color: #2A6085;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
 }
-.kpi-label { font-size: 0.95rem; color: #666; }
-.kpi-value { font-size: 1.4rem; font-weight: 700; color: #0a7a35; } /* Veerenstael-groen accent */
-.kpi-sub { font-size: 0.85rem; color: #888; margin-top: 2px; }
+
+.result-box {
+  background: #FFFFFF;
+  border: 2px solid #2A6085;
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 2px 16px rgba(42, 96, 133, 0.15);
+  margin-bottom: 1.5rem;
+}
+
+.result-bedrag {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #2A6085;
+}
+
+#extra-informatie {
+  background: #FFFFFF;
+  border: 1px solid #BFD4DA;
+  border-radius: 12px;
+  padding: 1.25rem;
+  color: #1D1D1B;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  box-shadow: 0 1px 8px rgba(42, 96, 133, 0.1);
+}
 
 #extra-informatie p {
-  margin: 0.25rem 0;
-  font-size: 0.95rem;
-}
-
-.alert {
-  margin-top: 0.75rem;
-  background: #fff7ed;
-  color: #9a3412;
-  border: 1px solid #fdba74;
-  border-radius: 8px;
-  padding: 10px 12px;
+  margin: 0;
 }
 
 /* Responsief */
-@media (max-width: 900px) {
-  .container { width: 90%; }
-  .kpi-wrap { grid-template-columns: repeat(2, 1fr); }
-}
-@media (max-width: 520px) {
-  .kpi-wrap { grid-template-columns: 1fr; }
+@media (max-width: 768px) {
+  .container {
+    width: 92%;
+    padding: 1.5rem 1.25rem;
+    margin: 1rem auto 1.5rem;
+  }
+  
+  .header h1 {
+    font-size: 1.6rem;
+  }
+  
+  .header .intro {
+    font-size: 0.9rem;
+  }
+  
+  .logo {
+    width: 80vw;
+    max-width: 300px;
+  }
+  
+  input, select {
+    font-size: 16px; /* Voorkomt zoom op iOS */
+  }
+  
+  .result-bedrag {
+    font-size: 2rem;
+  }
 }
