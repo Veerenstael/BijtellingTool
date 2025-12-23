@@ -3,70 +3,76 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bijtelling Berekenen</title>
+  <title>Bijtelling Tool</title>
   <link rel="stylesheet" href="style.css">
+
+  <!-- Favicon toegevoegd -->
   <link rel="icon" href="favicon.png" type="image/png">
 </head>
 <body>
-  <header class="header">
-    <img src="logo-veerenstael-wit.png" alt="Veerenstael Logo" class="logo">
-    <h1>Bijtelling Auto van de zaak</h1>
-    <p class="intro">
-      Bereken de netto maandelijkse bijtelling voor een auto van de zaak op basis van cataloguswaarde, 
-      jaarinkomen en of de auto elektrisch is.
-    </p>
-  </header>
-
-  <div class="container">
-    <form id="bijtelling-form">
-      <label for="cataloguswaarde">Cataloguswaarde (€):</label>
-      <input type="number" id="cataloguswaarde" min="0" step="100" value="50000" required>
-
-      <label for="bruto-jaarinkomen">Bruto jaarinkomen (€):</label>
-      <input type="number" id="bruto-jaarinkomen" min="0" step="1000" value="60000" required>
-
-      <label for="eigen-bijdrage">Eigen bijdrage per maand (€):</label>
-      <input type="number" id="eigen-bijdrage" min="0" step="10" value="0" required>
-
-      <label for="belastingjaar">Belastingjaar:</label>
-      <select id="belastingjaar">
-        <option value="2025">2025</option>
-        <option value="2026" selected>2026</option>
-      </select>
-
-      <label for="kentekenjaar">Jaar van op kenteken zetten:</label>
-      <select id="kentekenjaar">
-        <option value="2019">2019</option>
-        <option value="2020">2020</option>
-        <option value="2021">2021</option>
-        <option value="2022">2022</option>
-        <option value="2023">2023</option>
-        <option value="2024">2024</option>
-        <option value="2025">2025</option>
-        <option value="2026" selected>2026</option>
-      </select>
-
-      <label for="elektrisch-auto">Elektrische auto?</label>
-      <select id="elektrisch-auto">
-        <option value="nee">Nee (benzine/diesel)</option>
-        <option value="ja">Ja (volledig elektrisch)</option>
-      </select>
-
-      <button type="submit">Bereken bijtelling</button>
-    </form>
-
-    <div id="resultaat">
-      <h2>Netto bijtelling per maand</h2>
-      <div class="result-box">
-        <div class="result-bedrag">€<span id="bijtelling-bedrag">0,00</span></div>
+  <div class="dashboard-bg">
+    <header class="logo-header">
+      <img src="logo-veerenstael-wit.png" alt="Veerenstael Logo" class="veerenstael-logo" />
+      <div class="subtitle-title">Bijtelling Tool</div>
+    </header>
+    <div class="main-card">
+      <div class="header center-header">
+        <p>Deze Veerenstael-tool laat je je netto bijtelling per maand voor je leaseauto berekenen. Vul je gegevens hieronder in en bekijk direct jouw bijtelling voor de auto van de zaak. In deze tool wordt rekening gehouden met heffingskorting</p>
       </div>
+      <div class="content-grid">
+        <section class="input-pane">
+          <form id="bijtelling-form">
+            <label for="belastingjaar">Belastingjaar</label>
+            <select id="belastingjaar">
+              <option value="2025">2025</option>
+              <option value="2026">2026</option>
+            </select>
 
-      <div id="extra-informatie">
-        <p id="info"></p>
+            <label for="kentekenjaar">Jaar van op kenteken zetten</label>
+            <select id="kentekenjaar">
+              <option value="2019">2019</option>
+              <option value="2020">2020</option>
+              <option value="2021">2021</option>
+              <option value="2022">2022</option>
+              <option value="2023">2023</option>
+              <option value="2024">2024</option>
+              <option value="2025">2025</option>
+              <option value="2026">2026</option>
+            </select>
+
+            <label for="elektrisch-auto">Rij je elektrisch?</label>
+            <select id="elektrisch-auto">
+              <option value="ja">Ja</option>
+              <option value="nee">Nee, ik rij benzine</option>
+            </select>
+
+            <label for="cataloguswaarde">Cataloguswaarde van de auto (€)</label>
+            <input type="number" id="cataloguswaarde" required>
+
+            <label for="bruto-jaarinkomen">Bruto jaarinkomen (€), incl. (geschat) incentive</label>
+            <input type="number" id="bruto-jaarinkomen" required>
+
+            <label for="eigen-bijdrage">Eigen bijdrage (€)</label>
+            <input type="number" id="eigen-bijdrage" required>
+
+            <div class="button-row">
+              <button type="submit" class="green">Bereken Bijtelling</button>
+              <button type="reset" class="reset-btn">Reset</button>
+            </div>
+          </form>
+        </section>
+        <section class="output-pane">
+          <div id="resultaat" class="result-block">
+            <h2>Jouw bijtelling:</h2>
+            <div class="result-bedrag">€<span id="bijtelling-bedrag">0.00</span></div>
+          </div>
+          <div id="extra-informatie" class="info-block">
+            <p id="info"></p>
+          </div>
+        </section>
       </div>
     </div>
   </div>
-
   <script src="main.js"></script>
 </body>
 </html>
